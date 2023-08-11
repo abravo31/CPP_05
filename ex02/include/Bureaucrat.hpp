@@ -4,10 +4,10 @@
 # include <iomanip>
 # include <iostream>
 # include <string>
-# include "Form.hpp"
+# include "AForm.hpp"
 # include "Exceptions.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat {
 	public:
@@ -33,7 +33,8 @@ class Bureaucrat {
 
 		void		increment( void );
 		void		decrement( void );
-		void		signForm( const Form& form );
+		void		signForm( AForm& form );
+		void		executeForm(AForm const& form);
 
 	private:
 		const std::string		_name;

@@ -1,5 +1,5 @@
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 # include <iomanip>
 # include <iostream>
@@ -10,20 +10,22 @@
 
 class Bureaucrat;
 
-class Form {
+class AForm {
 	public:
 
 	// Constructor & Destructor
-		Form( std::string name, const int toSign, const int toExecute );
-		Form( const Form& copy );
-		~Form( void );
+		AForm( std::string name, const int toSign, const int toExecute );
+		AForm( const AForm& copy );
+		virtual ~AForm( void );
 	
 	// Assignment Operator
-		Form& operator = ( const Form& src );
+		AForm& operator = ( const AForm& src );
 
 	// Members functions
 
-		void		beSigned( const Bureaucrat& bureaucrat );
+		void			beSigned( const Bureaucrat& bureaucrat );
+		void			execute( Bureaucrat const& executor )const;
+		virtual void	executeAction( void ) const = 0;
 	
 	// Getters
 
@@ -39,8 +41,9 @@ class Form {
 		const int	            _toexecute;
         GradeTooHighException	_tooHigh;
 		GradeTooLowException	_tooLow;
+		FormNotSignedException	_notSigned;
 };
 
-std::ostream& operator << ( std::ostream& out, const Form& form );
+std::ostream& operator << ( std::ostream& out, const AForm& form );
 
 #endif

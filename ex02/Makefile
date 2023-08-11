@@ -1,4 +1,4 @@
-NAME		=	Form
+NAME		=	AForm
 
 CC			=	c++
 
@@ -20,7 +20,7 @@ UP			=	\033[A
 CUT			=	\033[K
 
 #source files
-SRC_FILES	=	Form.cpp Bureaucrat.cpp main.cpp
+SRC_FILES	=	ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp AForm.cpp Bureaucrat.cpp main.cpp
 
 OBJ_FILES	=	$(SRC_FILES:.cpp=.o)
 
@@ -31,10 +31,10 @@ OBJ			=	$(addprefix $(OBJ_DIR), $(OBJ_FILES))
 #all rule
 all: $(NAME)
 	@printf "\n"
-	@printf "$(GREEN)            ___ ___          ___    _____    _     _      ___ ___ \n$(RESET)"
-	@printf "$(GREEN) ___ _ _   |   |_  |     ___|  _|  |    _| _| |_ _| |_   |   | __|\n$(RESET)"
-	@printf "$(GREEN)| -_|_'_|  | | |_| |_   | . |  _|  |   |_ |_   _|_   _|  | | |__ |\n$(RESET)"
-	@printf "$(GREEN)|___|_,_|  |___|_____|  |___|_|    |_____|  |_|   |_|    |___|___|\n$(RESET)"
+	@printf "$(GREEN)            ___ ____        ___    _____    _     _      ___ ___ \n$(RESET)"
+	@printf "$(GREEN) ___ _ _   |   |__  |   ___|  _|  |    _| _| |_ _| |_   |   | __|\n$(RESET)"
+	@printf "$(GREEN)| -_|_'_|  | | |  __|  | . |  _|  |   |_ |_   _|_   _|  | | |__ |\n$(RESET)"
+	@printf "$(GREEN)|___|_,_|  |___|____|  |___|_|    |_____|  |_|   |_|    |___|___|\n$(RESET)"
 	@printf "$(GREEN)                                                                \n$(RESET)"
 	@printf "\n"
 

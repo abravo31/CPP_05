@@ -65,11 +65,29 @@ void		Bureaucrat::decrement( void ){
     }
 }
 
-void		Bureaucrat::signForm( const Form& form ){
-    if ( form.getSign() == true )
+void		Bureaucrat::signForm( AForm& form ) {
+    try
+    {
+        form.beSigned(*this);
         std::cout << this->_name << " signed " << form.getName() << std::endl;
-    else
-        std::cout << this->_name << " couldn’t sign " << form.getName() << " beacause grade is too low" << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cout << this->_name << " couldn’t sign " << form.getName() << " beacause " << e.what() << '\n';
+    }
+}
+
+void		Bureaucrat::executeForm(AForm const& form){
+    try
+    {
+        form.execute(*this);
+    	std::cout << this->_name << " executed " << form.getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << this->_name << " couldn't execute " << form.getName() \
+				  << " because " << e.what() << std::endl;
+	}
 }
 
 std::ostream& operator << ( std::ostream& out, const Bureaucrat& bureaucrat ){
@@ -80,6 +98,7 @@ std::ostream& operator << ( std::ostream& out, const Bureaucrat& bureaucrat ){
 const char* GradeTooHighException::what() const throw(){
     return ("grade too high");
 }
+
 const char* GradeTooLowException::what() const throw(){
     return ("grade too low");
 }
