@@ -6,12 +6,12 @@ int main ( void ){
         Bureaucrat Nini( "🐱 Nini", 9 );
         Form Form1("Form 📝", 7, 5);
         while (Nini.getGrade() >= 6){
-            //Nini.decrement();
-            Nini.increment();
             std::cout << Nini;
             Form1.beSigned(Nini);
             Nini.signForm(Form1);
             std::cout << Form1;
+			//Nini.decrement();
+            Nini.increment();
         }
     } catch (std::exception& e){
         std::cout << "ERROR: " << e.what() << std::endl;

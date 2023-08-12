@@ -34,6 +34,8 @@ Form& Form::operator = ( const Form& src ){
 void	Form::beSigned( const Bureaucrat& bureaucrat ){
     if ( bureaucrat.getGrade() <= this->_tosign )
         this->_signed = 1;
+    else
+        throw this->_tooLow;
 }
 	
 // Getters
