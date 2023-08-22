@@ -30,15 +30,12 @@ RobotomyRequestForm& RobotomyRequestForm::operator = ( const RobotomyRequestForm
 
 // Members functions
 void		RobotomyRequestForm::executeAction( void )const{
-	
-	std::random_device rd;
-    std::mt19937 rng(rd());
-    std::uniform_real_distribution<double> distribution(0.0, 1.0); // Distribution btw 0 et 1
 
-    double random_number = distribution(rng);
+    int num;
 
+    num = std::rand() % 2;
 	std::cout << "*** BrRrRRRrr!!! ***" << std::endl;
-    if (random_number < 0.5) {
+    if (num == 0) {
         std::cout << this->getTarget() << " has been robotomized successfully" << std::endl;
     } else {
         std::cout << "Robotomy failed." << std::endl;
