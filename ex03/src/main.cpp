@@ -1,45 +1,104 @@
-#include "../include/Bureaucrat.hpp"
+#include "Bureaucrat.hpp"
 #include "Intern.hpp"
 
-int main ( void ){
-	try{
-		Intern intern;
+int	main()
+{
+	try
+	{
+		AForm*	signed_shrubbery;
+		AForm*	robotomy;
+		AForm*	invalidForm;
+		AForm*	pardon;
 
-    	AForm* 		shrubberyForm = intern.makeForm("ShrubberyCreationForm", "garden");
-    	AForm*		robotomyForm = intern.makeForm("RobotomyRequestForm", "target");
-    	AForm*		pardonForm = intern.makeForm("PresidentialPardonForm", "victim");
-    	AForm*		invalidForm = intern.makeForm("InvalidForm", "invalid_target");
-		Bureaucrat	can_everything("can everything", 4);
+		std::cout << "\n-------CONSTRUCTION-------\n";
+		Bureaucrat				bureaury("bureaury", 100);
+		//Bureaucrat				bureaury2("bureaury", 1000);
+		Intern					terny;
+		
+		signed_shrubbery = (terny.makeForm("ShrubberyCreationForm", "Shub"));
+		std::cout << "SHRUBBERY:\n" \
+			<< *signed_shrubbery << std::endl;
+		bureaury.signForm(*signed_shrubbery);
+		bureaury.executeForm(*signed_shrubbery);
+		delete signed_shrubbery;
 
-    	// Test if forms were created successfully
-    	if (shrubberyForm) {
-        	shrubberyForm->execute(can_everything);
-        	delete shrubberyForm;
-    	}
+		std::cout << "--------------------------\n";
 
-    	if (robotomyForm) {
-        	robotomyForm->execute(can_everything);
-        	delete robotomyForm;
-    	}
+		robotomy = (terny.makeForm("RobotomyRequestForm", "Rob"));
+		std::cout << "ROBOTOMY:\n" \
+			<< *robotomy << std::endl;
+		bureaury.signForm(*robotomy);
+		bureaury.executeForm(*robotomy);
+		delete robotomy;
 
-    	if (pardonForm) {
-        	pardonForm->execute(can_everything);
-        	delete pardonForm;
-    	}
+		std::cout << "--------------------------\n";
 
-    	if (invalidForm) {
-        // This won't execute since the form creation failed
-        	delete invalidForm;
-    	}
+		pardon = (terny.makeForm("PresidentialPardonForm", "Paola"));
+		std::cout << "PARDON:\n" \
+			  << *pardon << std::endl;
+		bureaury.signForm(*pardon);
+		bureaury.executeForm(*pardon);
+		delete pardon;
+
+		std::cout << "--------------------------\n";
+
+		invalidForm = (terny.makeForm("WrongForm", "Wrong"));
+		std::cout << "\nINVALID FORM:\n" \
+			  << *invalidForm << std::endl;
+		bureaury.signForm(*invalidForm);
+		bureaury.executeForm(*invalidForm);
+		delete invalidForm;
+		
+		std::cout << "--------------------------\n";
+
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << "\nERROR: " << e.what() << '\n';
 	}
 	std::cout << "--------------------------\n";
-
-    return 0;
+	return 0;
 }
+
+// int main ( void ){
+
+// 	try{
+// 		Bureaucrat	can_everything("can everything", 100);
+
+// 		AForm* 		shrubberyForm;
+//     	AForm*		robotomyForm;
+//     	AForm*		pardonForm;
+// 		AForm*		invalidForm;
+// 		Intern intern;
+
+//     	shrubberyForm = (intern.makeForm("ShrubberyCreationForm", "garden"));
+//     	robotomyForm = intern.makeForm("RobotomyRequestForm", "target");
+//     	pardonForm = intern.makeForm("PresidentialPardonForm", "victim");
+// 		invalidForm = intern.makeForm("InvalidForm", "invalid_target");
+
+
+// 		can_everything.signForm(*shrubberyForm);
+//         can_everything.signForm(*robotomyForm);
+//         can_everything.signForm(*pardonForm);
+
+//         can_everything.executeForm(*pardonForm);
+// 		can_everything.executeForm(*shrubberyForm);
+//         can_everything.executeForm(*robotomyForm);
+// 		can_everything.executeForm(*invalidForm);
+
+// 		delete pardonForm;
+// 		delete shrubberyForm;
+// 		delete robotomyForm;
+// 		//delete invalidForm;
+// 	}
+// 	catch(const std::exception& e)
+// 	{
+// 		std::cerr << "\nERROR: " << e.what() << '\n';
+// 	}
+// 	std::cout << "--------------------------\n";
+
+//     return 0;
+// }
 
 //    try
 // 	{

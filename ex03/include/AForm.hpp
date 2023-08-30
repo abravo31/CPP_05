@@ -14,6 +14,7 @@ class AForm {
 	public:
 
 	// Constructor & Destructor
+		AForm();
 		AForm( std::string name, const int toSign, const int toExecute );
 		AForm( const AForm& copy );
 		virtual ~AForm( void );

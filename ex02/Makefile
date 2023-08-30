@@ -2,7 +2,7 @@ NAME		=	AForm
 
 CC			=	c++
 
-CFLAGS		=	-Wall -Werror -Wextra -std=c++98
+CFLAGS		=	-Wall -Werror -Wextra -std=c++98 -g3
 
 # directories
 SRC_DIR		=	src/

@@ -62,7 +62,7 @@ AForm*    Intern::makeForm( const std::string formName, const std::string target
             return formCreators[i](target);
         }
     }
-
+    std::cout << target << ": " << formName << std::endl; 
     throw _badForm;
 }
 
